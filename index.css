@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Sketchy Crayon Theme Colors */
+    --cream-bg: 40 25% 94%; /* #f5eee6 */
+    --tomato-red: 0 79% 51%; /* #e12727 */
+    --tomato-green: 120 100% 26%; /* #008400 */
+    --tomato-blue: 226 37% 23%; /* #252f50 */
+    --crayon-text: 222 37% 24%; /* #252f50 */
+    
+    /* Sketchy effects */
+    --sketchy-border: 3px solid;
+    --crayon-shadow: 0 4px 0px;
+    --wiggle-shadow: 0 6px 0px;
+    
+    /* Animation timings - more playful */
+    --transition-bouncy: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-wiggle: all 0.2s ease-in-out;
+    
+    /* Core system colors */
+    --background: var(--cream-bg);
+    --foreground: var(--crayon-text);
+    --card: 0 0% 100%;
+    --card-foreground: var(--crayon-text);
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--crayon-text);
+    --primary: var(--tomato-red);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--tomato-green);
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 100% / 0.8;
+    --muted-foreground: var(--crayon-text);
+    --accent: var(--tomato-green);
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: var(--crayon-text);
+    --input: 0 0% 100%;
+    --ring: var(--tomato-red);
+    --radius: 20px;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Sketchy crayon effects */
+  .sketchy {
+    border: var(--sketchy-border) hsl(var(--crayon-text));
+    box-shadow: var(--crayon-shadow) hsl(var(--crayon-text));
+    border-radius: var(--radius);
+  }
+  
+  /* Shadow utilities */
+  .shadow-crayon { box-shadow: var(--crayon-shadow) hsl(var(--crayon-text)); }
+  .shadow-wiggle { box-shadow: var(--wiggle-shadow) hsl(var(--crayon-text)); }
+  
+  /* Transition utilities */
+  .transition-bouncy { transition: var(--transition-bouncy); }
+  .transition-wiggle { transition: var(--transition-wiggle); }
+  
+  /* Interactive elements */
+  .hover-wiggle {
+    @apply transition-wiggle;
+  }
+  .hover-wiggle:hover {
+    transform: scale(1.05);
+    box-shadow: var(--wiggle-shadow) hsl(var(--tomato-red));
+  }
+  
+  .hover-bounce:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--wiggle-shadow) hsl(var(--tomato-green));
+  }
+  
+  .crayon-button {
+    @apply sketchy transition-bouncy;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+  .crayon-button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--wiggle-shadow) hsl(var(--crayon-text));
+  }
+}
