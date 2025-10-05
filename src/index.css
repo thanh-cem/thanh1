@@ -138,3 +138,14 @@ All colors MUST be HSL.
     box-shadow: var(--wiggle-shadow) hsl(var(--crayon-text));
   }
 }
+
+/* Note fall animation for NoteCanvas */
+@keyframes note-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(120vh) rotate(8deg); opacity: 0; }
+}
+
+.animate-note-fall {
+  animation: note-fall 0.8s ease-in forwards;
+  will-change: transform, opacity;
+}

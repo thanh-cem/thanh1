@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Mail, Github, Instagram, Send } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { SITE_CONFIG } from '@/config/site-config';
+import NoteCanvas from '@/components/NoteCanvas';
 
 const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -155,26 +156,10 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Social Links */}
-        <div className={`text-center mt-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}>
-          <p className="text-crayon-text mb-6">
-            {contact.socialText}
-          </p>
-          <div className="flex justify-center gap-4">
-            {[
-              { icon: <Github className="w-5 h-5" />, href: personal.contact.githubUrl },
-              { icon: <Instagram className="w-5 h-5" />, href: personal.contact.instagramUrl },
-              { icon: <Mail className="w-5 h-5" />, href: `mailto:${personal.contact.email}` }
-            ].map((social, index) => (
-              <a
-                key={index}
-                href={social.href}
-                className={`p-3 rounded-full sketchy border-2 border-tomato-red text-tomato-red bg-transparent hover:bg-tomato-red hover:text-white transition-bouncy hover:scale-105`}
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
+        {/* Note Canvas Section */}
+        <div className={`mt-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}>
+          <h3 className="text-2xl font-semibold text-crayon-text text-center mb-6">or write me a note</h3>
+          <NoteCanvas />
         </div>
       </div>
     </section>
