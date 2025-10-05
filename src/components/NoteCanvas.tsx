@@ -61,13 +61,15 @@ const NoteCanvas = () => {
 
   // Sticker catalog (from public/)
   const STICKER_FILES = [
-    { key: 'but', src: '/bút.png' },
-    { key: 'ca1', src: '/cà.png' },
-    { key: 'ca2', src: '/180.png' },
-    { key: 'ghe', src: '/ghế.png' },
+    // Use ASCII-only filenames to avoid Unicode normalization issues on Linux servers
+    // Make sure corresponding files exist in public/ with these names
+    { key: 'but', src: '/but.png' },
+    { key: 'ca1', src: '/ca.png' },
+    { key: 'ca2', src: '/ca2.png' },
+    { key: 'ghe', src: '/ghe.png' },
     { key: 'sao', src: '/sao.png' },
-    { key: 'not', src: '/nốt.png' },
-    { key: 'chuoi', src: '/chuối.png' },
+    { key: 'not', src: '/not.png' },
+    { key: 'chuoi', src: '/chuoi.png' },
     { key: 'tai', src: '/tai.png' },
   ];
   const stickerImagesRef = useRef<Record<string, HTMLImageElement>>({});
