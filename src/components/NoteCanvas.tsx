@@ -61,11 +61,9 @@ const NoteCanvas = () => {
 
   // Sticker catalog (from public/)
   const STICKER_FILES = [
-    // Use ASCII-only filenames to avoid Unicode normalization issues on Linux servers
-    // Make sure corresponding files exist in public/ with these names
     { key: 'but', src: '/but.png' },
-    { key: 'ca1', src: '/ca.png' },
-    { key: 'ca2', src: '/ca2.png' },
+    { key: 'ca1', src: '/ca1.png' },
+    { key: 'ca2', src: '/180.png' },
     { key: 'ghe', src: '/ghe.png' },
     { key: 'sao', src: '/sao.png' },
     { key: 'not', src: '/not.png' },
