@@ -42,6 +42,9 @@ const BackgroundAudio = () => {
         // once playback starts, we can remove these listeners
         window.removeEventListener('pointerdown', resumeOnInteraction);
         window.removeEventListener('keydown', resumeOnInteraction);
+        window.removeEventListener('wheel', resumeOnInteraction);
+        window.removeEventListener('scroll', resumeOnInteraction, true);
+        window.removeEventListener('touchstart', resumeOnInteraction);
       } catch {
         // ignore; keep listeners
       }
@@ -50,6 +53,10 @@ const BackgroundAudio = () => {
     audio.addEventListener('ended', onEnded);
     window.addEventListener('pointerdown', resumeOnInteraction);
     window.addEventListener('keydown', resumeOnInteraction);
+    window.addEventListener('wheel', resumeOnInteraction, { passive: true });
+    // use capture for scroll so it triggers even if prevented in bubbling phase
+    window.addEventListener('scroll', resumeOnInteraction, true);
+    window.addEventListener('touchstart', resumeOnInteraction, { passive: true });
 
     // kick off
     void playCurrent();
@@ -58,6 +65,9 @@ const BackgroundAudio = () => {
       audio.removeEventListener('ended', onEnded);
       window.removeEventListener('pointerdown', resumeOnInteraction);
       window.removeEventListener('keydown', resumeOnInteraction);
+      window.removeEventListener('wheel', resumeOnInteraction);
+      window.removeEventListener('scroll', resumeOnInteraction, true);
+      window.removeEventListener('touchstart', resumeOnInteraction);
       audio.pause();
       // Do not null out refs to preserve across hot-reloads if remounted
     };
