@@ -63,7 +63,7 @@ const NoteCanvas = () => {
   const STICKER_FILES = [
     { key: 'but', src: '/but.png' },
     { key: 'ca1', src: '/ca1.png' },
-    { key: 'ca2', src: '/180.png' },
+    { key: 'ca2', src: '/ca2.png' },
     { key: 'ghe', src: '/ghe.png' },
     { key: 'sao', src: '/sao.png' },
     { key: 'not', src: '/not.png' },
